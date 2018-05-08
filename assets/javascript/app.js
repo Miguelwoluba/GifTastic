@@ -3,6 +3,7 @@ $(document).ready(function () {
 
     var topics = ["Motorcycles", "Dirtbikes", "Cars", "Trials Motorcycles", "Motorcross", "F1", "Rally", "Downhill Bikes", "Tricycles", "Bicycle"];
     
+
     for(var i =0; i < topics.length; i++){
         var button = $("<button>");
         var buttonText = $("<p>"+topics[i]+"</p>");
@@ -12,7 +13,7 @@ $(document).ready(function () {
         button.attr("data-button", topics[i]);
         button.addClass("singleButton");
 
-    }
+    };
     
     $(".singleButton").on("click", function () {
         
