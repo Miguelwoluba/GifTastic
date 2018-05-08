@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
 
-    var topics = ["motorcycles", "dirtbikes", "cars", "trials motorcycles", "motorcross", "f1", "rally", "downhill bikes", "tricycles", "bicycle"];
+    var topics = ["Motorcycles", "Dirtbikes", "Cars", "Trials Motorcycles", "Motorcross", "F1", "Rally", "Downhill Bikes", "Tricycles", "Bicycle"];
     
     for(var i =0; i < topics.length; i++){
         var button = $("<button>");
@@ -37,12 +37,33 @@ $(document).ready(function () {
 
                         var topicImage = $("<img>");
                         topicImage.attr("src", results[i].images.fixed_height.url);
+                        topicImage.attr("data-still", results[i].images.fixed_height_still.url);
+                        topicImage.attr("data-animate", results[i].images.fixed_height.url);
+                        topicImage.attr("data-state","still");
+                        topicImage.attr("class", "gif");
+
+                                                
 
                         gifDiv.prepend(p);
                         gifDiv.prepend(topicImage);
 
-            $("#gifs-container").prepend(gifDiv);
-        }
+                    $("#gifs-container").prepend(gifDiv);
+
+                    $(".gif").on("click", function () {
+                        var state = $(this).attr("data-state");
+                        if (state === "still") {
+                        var animatedURL = $(this).attr("data-animate");
+                        $(this).attr("src", animatedURL).attr("data-state", "animate");
+
+                        } else if (state === "animate") {
+
+                        var stillURL = $(this).attr("data-still");
+                        $(this).attr("src", stillURL).attr("data-state", "still");
+                         }
+                    });
+
+
+        };
     });
 });
 
