@@ -49,21 +49,24 @@ $(document).ready(function () {
 
                     $("#gifs-container").prepend(gifDiv);
 
-                    $(".gif").on("click", function () {
-                        var state = $(this).attr("data-state");
-                        if (state === "still") {
-                        var animatedURL = $(this).attr("data-animate");
-                        $(this).attr("src", animatedURL).attr("data-state", "animate");
-
-                        } else if (state === "animate") {
-
-                        var stillURL = $(this).attr("data-still");
-                        $(this).attr("src", stillURL).attr("data-state", "still");
-                         }
-                    });
+                   
 
 
         };
+                    $(".gif").on("click", function () {
+                        var state = $(this).attr("data-state");
+
+                        if (state === "still") {
+
+                            var animatedURL = $(this).attr("data-animate");
+                            $(this).attr("src", animatedURL).attr("data-state", "animate");
+
+                        } else if (state === "animate") {
+
+                            var stillURL = $(this).attr("data-still");
+                            $(this).attr("src", stillURL).attr("data-state", "still");
+                        }
+                    });
     });
 });
 
